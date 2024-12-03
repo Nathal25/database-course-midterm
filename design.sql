@@ -1,6 +1,6 @@
 -- Tabla Talentohumano
 CREATE TABLE Talentohumano (
-    codUnico INT PRIMARY KEY,
+    codUnico VARCHAR(200) PRIMARY KEY,
     nombre VARCHAR(200),
     apellido VARCHAR(200),
     licencia VARCHAR(200),
@@ -10,13 +10,13 @@ CREATE TABLE Talentohumano (
 
 -- Tabla Conductor
 CREATE TABLE Conductor (
-    codUnico INT,
+    codUnico VARCHAR(200) PRIMARY KEY,
     FOREIGN KEY (codUnico) REFERENCES Talentohumano(codUnico)
 );
 
 -- Tabla Operario
 CREATE TABLE Operario (
-    codUnico INT,
+    codUnico VARCHAR(200) PRIMARY KEY,
     FOREIGN KEY (codUnico) REFERENCES Talentohumano(codUnico)
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE Estacion (
 
 -- Tabla OperarioEstacion
 CREATE TABLE OperarioEstacion (
-    codOperario INT,
+    codOperario VARCHAR(200),
     nombreEstacion VARCHAR(200),
     fechaInspeccion DATE,
     descripcion TEXT,
@@ -45,7 +45,7 @@ CREATE TABLE Auto (
     estado BOOLEAN,
     fechaCompra DATE,
     modelo VARCHAR(200),
-    idConductor INT NOT NULL,
+    idConductor VARCHAR(200) NOT NULL,
     FOREIGN KEY (idConductor) REFERENCES Conductor(codUnico)
 );
 
@@ -73,7 +73,7 @@ CREATE TABLE ViajeAutoRuta (
     idAuto VARCHAR(200),
     idViaje INT,
     nombreRuta VARCHAR(200),
-    fechahora DATETIME,
+    fechahora DATE,
     pasajeros INT,
     FOREIGN KEY (idAuto) REFERENCES Auto(idAuto),
     FOREIGN KEY (idViaje) REFERENCES Viaje(idViaje),
