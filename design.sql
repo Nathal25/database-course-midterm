@@ -52,7 +52,7 @@ CREATE TABLE Auto (
 -- Tabla Ruta
 CREATE TABLE Ruta (
     nombreRuta VARCHAR(200) PRIMARY KEY,
-    tiempoRecorrido TIMESTAMP
+    tiempoRecorrido INTERVAL
 );
 
 -- Tabla RutaEstacion
